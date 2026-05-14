@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cirya - Live</title>
+    <meta name="description" content="Watch Cirya live on Twitch.">
+
+    <link href="https://framerusercontent.com/images/216Psk9rr6HoYQnXLSCj9Ck0bEc.png" rel="icon" media="(prefers-color-scheme: light)">
+    <link href="https://framerusercontent.com/images/rDop3zlvY8qArR6OWCJFouVi8u8.png" rel="icon" media="(prefers-color-scheme: dark)">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cirya - Live">
+    <meta property="og:description" content="Watch Cirya live on Twitch.">
+    <meta property="og:image" content="https://framerusercontent.com/images/n9Gg85PBEYUrreS95bywDQNeDs.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cirya - Live">
+    <meta name="twitter:description" content="Watch Cirya live on Twitch.">
+    <meta name="twitter:image" content="https://framerusercontent.com/images/n9Gg85PBEYUrreS95bywDQNeDs.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .watch-layout {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: #0a0a0a;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            flex-shrink: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .brand-name {
+            font-size: 1.1rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #e91916;
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .live-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #fff;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .stream-area {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .player-container {
+            flex: 1;
+            position: relative;
+            background: #000;
+        }
+
+        .player-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .chat-container {
+            width: 340px;
+            flex-shrink: 0;
+            border-left: 1px solid rgba(255,255,255,0.06);
+            background: #0a0a0a;
+        }
+
+        .chat-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+            }
+
+            .watch-layout {
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .stream-area {
+                flex-direction: column;
+                overflow: visible;
+            }
+
+            .player-container {
+                position: relative;
+                padding-top: 56.25%;
+                height: 0;
+            }
+
+            .player-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .chat-container {
+                width: 100%;
+                height: 500px;
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.06);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="watch-layout">
+        <div class="top-bar">
+            <a href="/" class="brand">
+                <span class="brand-name">Cirya</span>
+                <span class="live-badge">
+                    <span class="live-dot"></span>
+                    Live
+                </span>
+            </a>
+            <a href="/" class="back-link">← Directory</a>
+        </div>
+
+        <div class="stream-area">
+            <div class="player-container">
+                <iframe
+                    src="https://player.twitch.tv/?channel=tagnzz&parent=cirya.co&autoplay=true"
+                    allowfullscreen
+                    allow="autoplay; fullscreen">
+                </iframe>
+            </div>
+            <div class="chat-container">
+                <iframe
+                    src="https://www.twitch.tv/embed/tagnzz/chat?parent=cirya.co&darkpopout"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
